@@ -1,8 +1,8 @@
 import './App.css';
 import Header from './Components/Header/Header';
-import Shop from './Components/Header/Shop/Shop';
 import Propsvstate from './Components/PropsVSstate/Propsvstate';
 import Reactworks from './Components/React-works/Reactworks';
+import Shop from './Components/Shop/Shop';
 import Usestate from './Components/UseState/Usestate';
 
 function App() {
