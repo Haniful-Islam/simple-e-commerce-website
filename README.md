@@ -1,3 +1,3 @@
 # Lucky-One
-# my private repository link: https://github.com/Programming-Hero-Web-Course4/lucky-one-Haniful-Islam
+# my private repository link: https://symphonious-zuccutto-d53662.netlify.app/
 

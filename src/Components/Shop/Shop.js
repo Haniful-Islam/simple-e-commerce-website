@@ -13,22 +13,13 @@ const Shop = () => {
             .then(data => setProducts(data))
     }, [])
     const handleAddtoCart = (product) => {
-        console.log(product.name)
+        // console.log(product.name)
         const newCart = [...cart, product];
         setCart(newCart);
         if (newCart.length > 4) {
             alert('No Item Selected')
         }
-        // else {
-        //     newCart(newCart);
-        // }
-        // const selected = () => {
-
-        // }
-
-
     }
-
 
     return (
         <div className="products-container">
@@ -37,9 +28,7 @@ const Shop = () => {
                     products.map(product => <Product
                         key={product.id}
                         product={product}
-                        // selected={selected}
                         handleAddtoCart={handleAddtoCart}
-
                     ></Product>)
                 }
             </div>
