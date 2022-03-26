@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 // import Product from '../../Product/Product';
 import './Shop.css'
@@ -12,9 +13,22 @@ const Shop = () => {
             .then(data => setProducts(data))
     }, [])
     const handleAddtoCart = (product) => {
+        console.log(product.name)
         const newCart = [...cart, product];
         setCart(newCart);
+        if (newCart.length > 4) {
+            alert('No Item Selected')
+        }
+        // else {
+        //     newCart(newCart);
+        // }
+        // const selected = () => {
+
+        // }
+
+
     }
+
 
     return (
         <div className="products-container">
@@ -23,17 +37,17 @@ const Shop = () => {
                     products.map(product => <Product
                         key={product.id}
                         product={product}
+                        // selected={selected}
                         handleAddtoCart={handleAddtoCart}
+
                     ></Product>)
                 }
             </div>
             <div className="order-container">
-                <h2>Selected Products</h2>
-                {
-                    cart.map(product => <h3>{product.name}</h3>)
-                }
-                <button className="choose-btn">CHOOSE 1 FOR ME</button>
-                <button className="choose-again-btn">CHOOSE AGAIN</button>
+                <Cart
+                    key={cart.id}
+                    cart={cart}
+                ></Cart>
             </div>
         </div>
     );
