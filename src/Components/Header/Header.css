@@ -1,0 +1,19 @@
+.header{
+    background-color:rgb(240, 40, 213);
+    
+}
+.header h1{
+    color:#fff;
+    text-align: center;
+    padding:10px 0;
+
+}
+
+@media screen and (max-width:688px) {
+    .header{
+        padding:0 10px;
+    }
+    .header h1{
+        font-size:24px;
+    }
+}
