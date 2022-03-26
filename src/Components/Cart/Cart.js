@@ -1,30 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
+import './Cart.css'
 
-const Cart = (props) => {
-    const { cart } = props;
-    const selectOne = (product) => {
-        if (product.length) {
-            const randomProduct = Math.round(Math.random() * (product.length - 1))
-            console.log(randomProduct);
-            const text = product[randomProduct].name + " Recommand for you";
-            // alert(text);
-            console.log(text);
-        }
-        else {
-            alert("Please select the random product");
-        }
-
+const Cart = ({ cart }) => {
+    const [selectedProduct, setSelectedProduct] = useState([]);
+    const totalItem = cart.length;
+    let total = 0;
+    for (const product of cart) {
+        total = total + product.price;
     }
 
+    const chooseButton = () => {
+        const getRandomInt = (max) => {
+            return Math.floor(Math.random() * max);
+        };
+        const selectedProductIndex = getRandomInt(cart.length);
+        setSelectedProduct(cart[selectedProductIndex]);
+        console.log(selectedProduct);
+    };
+    const againChooseBtn = () => {
+        window.location.reload();
+    };
+
     return (
-        <div>
-            <h2>Selected Products</h2>
-            {
-                cart.map(product => <p key={product.id}>{product.name}</p>)
-            }
-            <button className="choose-btn" onClick={() => selectOne(cart)}>CHOOSE 1 FOR ME</button>
-            <button className="choose-again-btn">CHOOSE AGAIN</button>
-        </div >
+        <div className="cart">
+            <h2 className="text-shadow">Selected Products</h2>
+            <div className='selected-name'>
+                <p>Total Items: {totalItem}</p>
+                {
+                    cart.map((product) => (
+                        <div className="product-show" key={product.id}>
+                            <img className="laptop-img" src={product.img} alt="" />
+                            <p>{product.name}</p>
+                        </div>
+                    ))
+                }
+            </div>
+            <button className='choose-btn' onClick={chooseButton}><p>CHOOSE ONE FOR ME</p></button>
+            {selectedProduct.id && (
+                <div className="display-randomProduct">
+                    <img className="random-selectedProduct" src={selectedProduct.img} alt="" />
+                    <p>{selectedProduct.name}</p>
+                </div>
+            )}
+            <button className='choose-btn' onClick={againChooseBtn}><p>CHOOSE AGAIN</p></button>
+        </div>
     );
 };
 

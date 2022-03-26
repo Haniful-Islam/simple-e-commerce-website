@@ -1,10 +1,11 @@
 import React from 'react';
+import './PropsVSstate.css';
 
 const Propsvstate = () => {
     return (
         <div>
             <h2 style={{ textAlign: 'center' }}>প্রপস ও স্টেট এর মধ্যে পার্থক্য কি?</h2>
-            <div style={{ padding: '0 140px' }}>
+            <div className="padding">
                 <h4>প্রপস:</h4>
                 <p>প্রপস হচ্ছে ইমিউটেবল ।</p>
                 <p>প্রপগুলি একটি উপাদান দ্বারা বাহ্যিক পরিবেশ থেকে ডেটা পেতে ব্যবহৃত হয় ।</p>
